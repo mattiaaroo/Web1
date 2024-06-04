@@ -1,2 +1,2 @@
 # Web1
-modulo Web1 ITS ICTAcademy
+modulo Web1 ITS-ICTAcademy
