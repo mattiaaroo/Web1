@@ -1,0 +1,65 @@
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            height: 100px;
+            margin: 2px;
+
+        }
+        .signup-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;;
+            width: 300px;
+            margin: auto
+        }
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .signup-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .signup-container input[type="text"],
+        .signup-container input[type="email"],
+        .signup-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .signup-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .signup-container input[type="submit"]{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="/gestisciDatiForm" method="get">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Sing Up">
+        </form>
+    </div>
+</body>
+</html>
