@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0 5px;
+            font-family: Arial;
+            font-size: 16px;
+            text-align: center;
+            background: #a9d6bf; /* Old browsers */
+            background: -moz-linear-gradient(left, #70e0a2 0%, #8fd3b0 21%, #bbeae7 37%, #d6ffdc 53%, #b9e0e8 63%, #77d6c9 84%, #869daa 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#70e0a2), color-stop(21%,#8fd3b0), color-stop(37%,#bbeae7), color-stop(53%,#d6ffdc), color-stop(63%,#b9e0e8), color-stop(84%,#77d6c9), color-stop(100%,#869daa)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left, #70e0a2 0%,#8fd3b0 21%,#bbeae7 37%,#d6ffdc 53%,#b9e0e8 63%,#77d6c9 84%,#869daa 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left, #70e0a2 0%,#8fd3b0 21%,#bbeae7 37%,#d6ffdc 53%,#b9e0e8 63%,#77d6c9 84%,#869daa 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left, #70e0a2 0%,#8fd3b0 21%,#bbeae7 37%,#d6ffdc 53%,#b9e0e8 63%,#77d6c9 84%,#869daa 100%); /* IE10+ */
+            background: linear-gradient(to right, #70e0a2 0%,#8fd3b0 21%,#bbeae7 37%,#d6ffdc 53%,#b9e0e8 63%,#77d6c9 84%,#869daa 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70e0a2', endColorstr='#869daa',GradientType=1 ); /* IE6-9 */
+        }
+        * {
+            margin: 0;
+            padding: 0px;
+        }
+
+        #calc input {
+            width: 40px;
+            height: 40px;
+            margin: 1px;
+            font-size: 15px;
+        }
+
+        .area {
+            margin-left: 4px;
+            width: 170px;
+            height: 30px;
+            padding: 2px;
+            text-align: right;
+            font-size: 20px
+        }
+        .tasto {
+            background-color: #a5cff3;
+            color: #175c97;
+            border:yes;
+        }
+        .tastoFun {
+            background-color: #ff6a00;
+            color: #175c97;
+            border: yes;
+        }tt6xsq 
+
+        
+    </style>
+<script>
+    function digit(n) {
+        if (document.form.res.value == 'Y') {
+            del();
+        }
+        document.form.monitor.value = document.form.monitor.value + n;
+    }
+
+    function ar(n) {
+        document.form.oper.value = n;
+        document.form.last.value = document.form.monitor.value;
+        document.form.monitor.value = '';
+        document.form.res.value = '';
+    }
+
+    function cancella() {
+        var temp = document.form.monitor.value;
+        document.form.monitor.value = temp.substring(0, temp.length - 1);
+    }
+
+    function del() {
+        document.form.monitor.value = '';
+        document.form.last.value = '';
+        document.form.oper.value = '';
+        document.form.res.value = '';
+    }
+
+    function result() {
+        if (document.form.res.value != 'Y') {
+            if (document.form.monitor.value && document.form.oper.value && document.form.last.value) {
+
+                if (document.form.oper.value == 'p')
+                    pitagora(document.form.monitor.value, document.form.last.value );
+                else {
+                    document.form.monitor.value = eval(document.form.last.value + document.form.oper.value + document.form.monitor.value);
+                    document.form.res.value = 'Y';
+                }
+
+            }
+        }
+    }
+
+    function perc() {
+        if (document.form.res.value != 'Y') {
+            if (document.form.monitor.value && document.form.oper.value && document.form.last.value) {
+                document.form.monitor.value = (document.form.last.value / 100) * document.form.monitor.value;
+                if (document.form.oper.value == '*' || document.form.oper.value == '/') {
+                    document.form.res.value = 'Y';
+                }
+            }
+        }
+    }
+</script>
+ </head >
+        <body>
+            <center>
+                <p>
+                <h1>La mia calcolatrice</h1>
+                    <br /><br /><br />
+                    </p>
+            <div id="calcolatrice">
+                <form name="form">
+                    <input class="area" name="monitor" value="" placeholder="0">
+                    <input name="last" type="hidden" value="">
+                    <input name="oper" type="hidden" value="">
+                    <input name="res" type="hidden" value="">
+                    <table id="calc">
+                        <tr>
+                            <td><input type="button" value="C" onclick="del();"></td>
+                            <td><input type="button" value="◄" onclick="cancella();"></td>
+                            <td><input type="button" value="%" onclick="perc();"></td>
+                            <td><input type="button" value="&divide;" onclick="ar('/');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="tasto" value="7" onclick="digit(7);"></td>
+                            <td><input type="button" class="tasto" value="8" onclick="digit(8);"></td>
+                            <td><input type="button" class="tasto" value="9" onclick="digit(9);"></td>
+                            <td><input type="button" class="tastoFun" value="x" onclick="ar('*');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="tasto" value="4" onclick="digit(4);"></td>
+                            <td><input type="button" class="tasto" value="5" onclick="digit(5);"></td>
+                            <td><input type="button" class="tasto" value="6" onclick="digit(6);"></td>
+                            <td><input type="button" value="-" onclick="ar('-');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="tasto" value="1" onclick="digit(1);"></td>
+                            <td><input type="button" class="tasto" value="2" onclick="digit(2);"></td>
+                            <td><input type="button" class="tasto" value="3" onclick="digit(3);"></td>
+                            <td><input type="button" value="+" onclick="ar('+');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="0" onclick="digit(0);"></td>
+                            <td><input type="button" value="00" onclick="digit('00');"></td>
+                            <td><input type="button" value="," onclick="digit('.');"></td>
+                            <td><input type="button" value="=" onclick="result();"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+			
+                </center>
+				
+        </body >
+        </html >
