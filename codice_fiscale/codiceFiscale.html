@@ -390,6 +390,18 @@
     }
     </style>
 
+    <script>
+        function VerificaCampi()
+        {
+            console.log("Data inserita: " + document.getElementById("data_n").value)
+        }
+        function CalcolaCodiceFiscale()
+        {
+            console.log("Mi hai chiesto di calcolare il codice fiscale");
+            VerificaCampi();
+        }
+    </script>
+
 </head>
 <body>
 
@@ -438,7 +450,7 @@
         <div class="field data">
             <div class="label">DATA DI NASCITA</div>
             <div class="input">
-                <input type ="date" name="data_nascita" min="1900-01-01" required/>
+                <input id="data_n" type ="date" name="data_nascita" min="1900-01-01" required/>
             </div>
         </div>
         
@@ -447,3 +459,6 @@
                 </div>
     </form>
 </body>
+
+
+
